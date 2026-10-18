@@ -1,0 +1,45 @@
+.center-align {
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card {
+	width: 40vw;
+	height: auto;
+	
+	border: 1px black;
+	border-style: solid;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: 5px 5px;
+	
+	text-align: left;
+	align-items: center;
+
+	cursor: pointer;
+}
+
+.project-card ul,
+.project-card li,
+.project-title,
+.project-overview-text {
+	width: fit-content;
+	cursor: auto;
+}
+
+.project-title {
+	font-family: NimbusMonoBold;
+}
+
+.project-overview-text {
+	font-weight: lighter;
+	color: gray;
+	font-size: smaller;
+}
+
+ul {
+	margin-top: 0rem;
+}

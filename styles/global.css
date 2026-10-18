@@ -1,0 +1,56 @@
+@font-face {
+  font-family: NimbusMonoReg;
+  src: url(nimbus-mono/NimbusMono-Regular.otf);
+}
+@font-face {
+  font-family: NimbusMonoBold;
+  src: url(nimbus-mono/NimbusMono-Bold.otf);
+}
+@font-face {
+  font-family: NimbusMonoBoldOblique;
+  src: url(nimbus-mono/NimbusMono-BoldOblique.otf);
+}
+@font-face {
+  font-family: NimbusMonoOblique;
+  src: url(nimbus-mono/NimbusMono-Oblique.otf);
+}
+
+body {
+	font-family: NimbusMonoReg;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  font-size: 17px;
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+}
+
+.content {
+	padding-bottom: 10px;
+}
+
+.header {
+	left: 0;
+	top: 0;
+	width: 100%;
+	padding-top: 1rem;
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	font-size: 15px;
+}
+
+h1 {
+	padding-top: 1rem;
+}
+
+a {
+	color: darkcyan;
+}
