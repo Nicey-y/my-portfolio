@@ -1,0 +1,54 @@
+li {
+	margin-top: 0.3rem;
+}
+
+.disclaimer-text {
+	margin-top: 1rem;
+	font-size: smaller;
+	color: gray;
+}
+
+.resume-title {
+	margin-top: 1rem;
+	font-size: 4rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.resume-contact {
+	padding-top: 1rem;
+	text-align: center;
+}
+
+.section {
+	padding-top: 1rem;
+}
+
+.section-title {
+	font-weight: bold;
+	font-size: 1.5rem;
+	border-bottom: 1px black;
+	border-bottom-style: solid;
+}
+
+.entry-card {
+	text-align: justify;
+}
+
+.entry-title-box {
+	margin-top: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+}
+
+.entry-title {
+	font-weight: bold;
+}
+
+.entry-date {
+	white-space: nowrap;
+	flex-shrink: 0;
+	margin-left: auto;
+}

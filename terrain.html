@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="styles/global.css">
-    <title>My journey with TERRAIN</title>
+    <title>My journey with TERRAIN | Nicey's Portfolio</title>
   </head>
   <body>
     <div class="container">
@@ -11,13 +11,13 @@
       <div class="content">
         <h1>TERRAIN</h1>
         <p>
-          TERRAIN is a Melbourne-based start-up. They are a bookshop, a gallery, and
+          <a href="https://terrain.earth/">TERRAIN</a> is a Melbourne-based start-up. They are a bookshop, a gallery, and
           a working studio, while also offer environmental and consulting services.
           I first came into contact with them in 2025 through University of
           Melbourne's capstone subject, where I worked in a 5-people team as a Scrum
-          Master and Full Stack Developer to help TERRAIN fixing and managing their
-          current website, plus fixing their online bookshop to finally get it live
-          and generating revenue.
+          Master and Full Stack Developer to help TERRAIN fix and manage their
+          current website, plus fix their online bookshop to finally get it live
+          and generate revenue.
         </p>
 
         <p>
@@ -29,7 +29,7 @@
           on the Earth's resources to live. TERRAIN's solution to this crisis comes
           through their bookshop that hosts critical conversations about this
           specific problem throughout fields such as ecology, technology,
-          design,...etc.
+          design,...etc, their Bioassembly events where everyone do physical work to help restore the ecosystem, and so on.
         </p>
         <p>
           As a technology enthusiast, I connect to TERRAIN's mission on a personal
@@ -43,21 +43,21 @@
           As a result, I came back to TERRAIN in April 2026 and alongside Cristina
           Napoleone - the founder of TERRAIN - helped design the
           technological/digital stack behind TERRAIN's newest membership program
-          that launched May 2026. It was a lot between juggling 4 university
+          that launched in May 2026. It was a lot between juggling 4 university
           subjects and working on a tight deadline, but I also learnt a lot, from
           how much it needs to keep a business running to how much burden technology
-          and alleviate from a business' shoulders.
+          can alleviate from a business' shoulders.
         </p>
 
         <h2>Automatic Desk-Booking System</h2>
         <p>
           For context, as a member of TERRAIN, you can book a desk in the working
-          studio. A month into operation, I realised that instead of manually
-          checking the calendar and approving bookings, the whole process and be
+          studio as your WFH station. A month into operation, I realised that instead of manually
+          checking the calendar and approving bookings, the whole process can be
           automated. I pitched this to Cristina and she gave me the green light, for
-          which I am truly grateful for. Because as a fresh graduate, a real product
+          which I am truly grateful for, because as a fresh graduate, a real product
           that is used by real people is much more valuable than a spin-up project
-          that lives only on a Github repo. Cristina has trusted me with the
+          that lives only on a Github repo. Cristina has trusted me with 
           TERRAIN's digital infrastructure and customers. It is an honour, and a
           heavy responsibility reminding me that I have to always keep my
           performance at its peak.
@@ -72,7 +72,7 @@
         </p>
         <h3>Phase 1: Designing</h3>
         <p>
-          I did my own research and the result is that a PostgreSQL/Supabase
+          I did my own research and came to a conclusion that a PostgreSQL/Supabase
           backend, with a FastAPI as a backend to connect it with the current
           Aitable-base production is the best mediation. TERRAIN admin processes
           still heavily relies on Airtable for its interactive UI. In theory I can
@@ -83,8 +83,10 @@
           possible.
         </p>
 
-        <p>In the end, the full infrastructure looks something like this:</p>
-        <img />
+        <p>In the end, the full architecture looks something like this:</p>
+        <div class="image-container">
+          <img src="/images/DeskBookingArchitectureDiagram.png"/>
+        </div>
 
         <h3>Phase 2: Learning</h3>
         <p>
@@ -104,7 +106,7 @@
           basic SQL. The theories are very useful when it comes to designing the
           actual schema and deciding how the tables relate to each other to achieve
           my goal, but I found myself lacking in every way when it comes to writing
-          practical PostgreSQL code. That was when I realise I have to learn
+          practical PostgreSQL code. That was when I realised I have to learn
           PostgreSQL almost entirely from the beginning. However, I am on a short
           deadline, so I turned to Claude to build me interactive exercises from
           which I can both freshen-up my rusty SQL, and learn new things like
