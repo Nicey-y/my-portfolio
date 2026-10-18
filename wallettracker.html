@@ -10,7 +10,8 @@
 
 			<div class="content">
 				<h1>Wallet Tracker</h1>
-				<p>Github repo</p>
+				<p><a href="systemd">Public Github repo</a></p>
+				<p><a href="https://discord.com/oauth2/authorize?client_id=1491437562638893066&permissions=19456&integration_type=0&scope=bot+applications.commands">Invite to your server</a></p>
 				<p>
 					As an international student, I live on a budget. I tried keeping tab of my
 					spending on an Excel sheet, on my Note app on my phone, or even physically
@@ -24,11 +25,11 @@
 				<p>
 					It was then that I realised I need a different approach. Instead of adding
 					on top of my mental task list, why can't I intergrate this into what I'm
-					already doing. I use Discord to talk to my friends daily, so I totally can
-					make a Discord bot that track my spending for me, right?
+					already doing? I use Discord to talk to my friends daily, so I totally can
+					make a Discord bot that track my spending for me.
 				</p>
 				<p>
-					At was mid-sem break at the time I thought of this idea, which led me to
+					It was mid-sem break at the time I came up with this idea, which led me to
 					decide that this will be an ultra-fast 5-day project. LLM chatbots, or AI
 					chatbots, have been praised for their coding ability at that time, too, so
 					I figured I can use this opportunity to dip my foot into AI-assisted
@@ -56,8 +57,8 @@
 				<p>
 					Automated tests via Github Actions are easy to write, the more difficult
 					challenge is knowing what edge case to catch. I write out all test cases I
-					can think of, then feed into Claude to verify and suggest other plausible
-					cases. Most of the time it gives me 1-2 more edge cases that I deem worth
+					can think of, then fed into Claude to verify and suggest other plausible
+					cases. Most of the time it gives me 1-2 more edge cases that I deemed worth
 					testing.
 				</p>
 
@@ -70,10 +71,10 @@
 
 				<h3>Phase 5: Deployment</h3>
 				<p>
-					The first month of deployment, the bot ran on my 1-month trial of Railway
+					The first month of deployment, the production bot (the dev bot is another bot seprated from this) ran on my 1-month trial of Railway
 					pro and automatically reboot on every push to main branch, causing it to
-					loose all data after each reboot. Since this is still an initial trial
-					run, I compromisewith this while getting my friends to use this bot (aka
+					lose all data after each reboot. Since this was still an initial trial
+					run, I made peace with it while getting my friends to use this bot (aka
 					get them to be my testers). I collected many operation errors in this
 					stage.
 				</p>
@@ -81,9 +82,9 @@
 					After 1 month, my Railway trial is finally over. I don't want to pay a
 					monthly subscription fee for a bot that a total of <b>three</b> people
 					use, so I resorted to hosting it on my second laptop. This setup also
-					eliminates the problem of losing data on every reboot. I set up SSH tunnel
+					eliminates the problem of losing data on every reboot. I set up <a href="https://www.openssh.org/">SSH</a> tunnel
 					to have control over it remotely from my main laptop. The whole bot is
-					configured into a systemd service on Linux Ubuntu that allows me to start,
+					configured into a <a href="https://systemd.io/"></a>systemd service on Linux Ubuntu that allows me to start,
 					stop, restart, and inspect its output through remote command line actions.
 				</p>
 			</div>
