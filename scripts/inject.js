@@ -1,7 +1,7 @@
 async function loadIncludes() {
 	try {
-		const headerResponse = await fetch('components/header.html');
-		const footerResponse = await fetch('components/footer.html');
+		const headerResponse = await fetch('my-portfolio/components/header.html');
+		const footerResponse = await fetch('my-portfolio/components/footer.html');
 		
 		if (headerResponse.ok) {
 			document.querySelector('.js-header').innerHTML = await headerResponse.text();
