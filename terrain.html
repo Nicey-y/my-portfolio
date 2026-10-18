@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My journey with TERRAIN</title>
+  </head>
+  <body>
+    <h1>TERRAIN</h1>
+    <p>
+      TERRAIN is a Melbourne-based start-up. They are a bookshop, a gallery, and
+      a working studio, while also offer environmental and consulting services.
+      I first came into contact with them in 2025 through University of
+      Melbourne's capstone subject, where I worked in a 5-people team as a Scrum
+      Master and Full Stack Developer to help TERRAIN fixing and managing their
+      current website, plus fixing their online bookshop to finally get it live
+      and generating revenue.
+    </p>
+
+    <p>
+      To understand why I became attached to TERRAIN, I'd like to explain their
+      mission. TERRAIN acts to bridge the gap between human and the non-human
+      world, because a lot of the problems in our current climate stem from us
+      living in a human-centric world and thus having disconnected from the
+      surrounding environment as a whole species, while ironically also relying
+      on the Earth's resources to live. TERRAIN's solution to this crisis comes
+      through their bookshop that hosts critical conversations about this
+      specific problem throughout fields such as ecology, technology,
+      design,...etc.
+    </p>
+    <p>
+      As a technology enthusiast, I connect to TERRAIN's mission on a personal
+      level as I side with their stand on technology specifically. I believe
+      that everyone can own their tech stack and only through that can they be
+      aware of the impact of their digital life and act upon it.
+    </p>
+
+    <h2>Participation in taking the membership program off the ground</h2>
+    <p>
+      As a result, I came back to TERRAIN in April 2026 and alongside Cristina
+      Napoleone - the founder of TERRAIN - helped design the
+      technological/digital stack behind TERRAIN's newest membership program
+      that launched May 2026. It was a lot between juggling 4 university
+      subjects and working on a tight deadline, but I also learnt a lot, from
+      how much it needs to keep a business running to how much burden technology
+      and alleviate from a business' shoulders.
+    </p>
+
+    <h2>Automatic Booking System</h2>
+    <p>
+      For context, as a member of TERRAIN, you can book a desk in the working
+      studio. A month into operation, I realised that instead of manually
+      checking the calendar and approving bookings, the whole process and be
+      automated. I pitched this to Cristina and she gave me the green light, for
+      which I am truly grateful for. Because as a fresh graduate, a real product
+      that is used by real people is much more valuable than a spin-up project
+      that lives only on a Github repo. Cristina has trusted me with the
+      TERRAIN's digital infrastructure and customers. It is an honour, and a
+      heavy responsibility reminding me that I have to always keep my
+      performance at its peak.
+    </p>
+
+    <p>
+      Since the code base itself is under TERRAIN's intellectual property
+      agreement, I cannot share the Github repo, therefore I will outline my
+      design and building process down below. If you are a recruiter/hiring
+      manager reading this, I'm happy to talk into more details in person, or
+      provide more evidence after getting an approval from TERRAIN.
+    </p>
+    <h3>Phase 1: Designing</h3>
+    <p>
+      I did my own research and the result is that a PostgreSQL/Supabase
+      backend, with a FastAPI as a backend to connect it with the current
+      Aitable-base production is the best mediation. TERRAIN admin processes
+      still heavily relies on Airtable for its interactive UI. In theory I can
+      also just make a replica of its UI as part of this project, but after some
+      consideration, I've decided to shelve that as a future update since an
+      Airtable-level UI would have taken me too long, whereas my immediate goal
+      is to get a system running and taking off some admin burden as soon as
+      possible.
+    </p>
+
+    <p>In the end, the full infrastructure looks something like this:</p>
+    <img />
+
+    <h3>Phase 2: Learning</h3>
+    <p>
+      Not sure if this goes without saying so I'd like to admit up front that I
+      don't know the full tech stack at the beginning of this project. I don't
+      think of that as hinderance but instead, I treat this as an opportunity to
+      learn new things. Before this, I took a course in uni about database, and
+      have been using Python extensively, so learning PostgreSQL and FastAPI
+      will be a level-up from my current skill level. Naturally I thought it
+      would be easy. Not like I'm learning something from scratch, right?
+    </p>
+
+    <p>Well, I was wrong.</p>
+
+    <p>
+      In the uni database course, we learnt database <b>theories</b> plus some
+      basic SQL. The theories are very useful when it comes to designing the
+      actual schema and deciding how the tables relate to each other to achieve
+      my goal, but I found myself lacking in every way when it comes to writing
+      practical PostgreSQL code. That was when I realise I have to learn
+      PostgreSQL almost entirely from the beginning. However, I am on a short
+      deadline, so I turned to Claude to build me interactive exercises from
+      which I can both freshen-up my rusty SQL, and learn new things like
+      pgplsql functions and RLS.
+    </p>
+    <p>
+      It took me a week of relentless studying and writing PostgreSQL functions,
+      to a point that I can write a function in my dream the same way with a pen
+      and paper. Regardless, that was a successful operation.
+    </p>
+
+    <h3>Phase 3: Building</h3>
+    <p>
+      It won't be a surprise but I will say it anyway: this stage takes the
+      majority of my time and is the most gruelsome battle I've ever had with
+      Python. Despite being the programming language that I'm most familiar
+      with, there were moments that I really just wanted to go back to C and be
+      a caveman. To make up for how writing code is as natural as breathing air
+      and learning FastAPI on-the-run is easy, debugging was truly the level-100
+      final boss. Looking at error messages and tracing lines of code was not
+      enough anymore, which urged me to look into a debugging tool that is
+      beginner friendly. From my experience with C, I've came to love gdb, so I
+      search for something similar for Python and there actually is one! And
+      it's even named pdb. Sweet!
+    </p>
+
+    <h3>Phase 4: Testing</h3>
+    <p>
+      If I skip this step I may as well be doomed. I cannot bring myself to ship
+      an untested product while writing test cases in Python is so convenient
+      already. I used pytest and wrote close to 70 automated test cases, wired
+      them up to Github Actions so that they automatically run on push to a test
+      branch. I divided the tests into 3 layers: pure logic layer, database
+      communication layer, and manual tests that needs to be performed by a
+      human tester (me).
+    </p>
+
+    <h3>Phase 5: Deployment</h3>
+    <p>
+      This booking system's backend needs to be hosted on a machine. Now it's
+      worth mentioning again that TERRAIN is a startup, so their budget isn't
+      exactly redundant. We are already paying a monthly subscription fee to
+      Airtable, and adding another hosting fee on top of that is not ideal. I
+      thought that since we are still at the beginning phase of the membership
+      program, why not host the backend on my second laptop at home? The traffic
+      is low enough, and that laptop is currently only used to host a Discord
+      bot I made, so adding another low-traffic service like a Python script
+      wouldn't be a big deal. I consulted Cristina and she also agreed with this
+      plan, because we also have a project on the horizon that would solve this
+      hosting issue either way.
+    </p>
+
+    <p>
+      I hosted the booking backend on my second laptop at home. I set up SSH
+      tunnel to have control over it remotely from my main laptop. The backend
+      is configured into a systemd service on Linux Ubuntu that allows me to
+      start, stop, restart, and inspect its output through remote command line
+      actions.
+    </p>
+  </body>
+</html>

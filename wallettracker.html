@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Wallet Tracker</title>
+  </head>
+  <body>
+    <h1>Wallet Tracker</h1>
+		<p>Github repo</p>
+    <p>
+      As an international student, I live on a budget. I tried keeping tab of my
+      spending on an Excel sheet, on my Note app on my phone, or even physically
+      writing it down on my calendar. Regardless of what I tried, I cannot keep
+      a consistent habit of logging my spending. There is too much friction in
+      opening an Excel sheet when I get home on my laptop, Google Sheet is
+      horrible on mobile, Note app is too unorganised, and I forget to
+      physically write down my spending all the time.
+    </p>
+
+    <p>
+      It was then that I realised I need a different approach. Instead of adding
+      on top of my mental task list, why can't I intergrate this into what I'm
+      already doing. I use Discord to talk to my friends daily, so I totally can
+      make a Discord bot that track my spending for me, right?
+    </p>
+    <p>
+      At was mid-sem break at the time I thought of this idea, which led me to
+      decide that this will be an ultra-fast 5-day project. LLM chatbots, or AI
+      chatbots, have been praised for their coding ability at that time, too, so
+      I figured I can use this opportunity to dip my foot into AI-assisted
+      development.
+    </p>
+
+    <h3>Phase 1: Scoping</h3>
+    <p>
+      In this stage, I scope out what functionalities this bot will have, what
+      user-facing commands are available, what data to store, and the database
+      schema.
+    </p>
+
+    <h3>Phase 2: Build</h3>
+    <p>
+      Since I am on short deadline, I headed straight into building, with Claude
+      acting as both my mentor and assistant. I mapped out the progress as:
+      build command -> write functions to hook to database. With any setup that
+      I am unfamiliar with, for example how adding a command to a command tree
+      works, I prompted Claude to show me an example with line by line
+      explanation plus links to external resources.
+    </p>
+
+    <h3>Phase 3: Testing</h3>
+    <p>
+      Automated tests via Github Actions are easy to write, the more difficult
+      challenge is knowing what edge case to catch. I write out all test cases I
+      can think of, then feed into Claude to verify and suggest other plausible
+      cases. Most of the time it gives me 1-2 more edge cases that I deem worth
+      testing.
+    </p>
+
+    <h3>Phase 4: Set up manual test</h3>
+    <p>
+      I went to Discord's development admin panel and created a dev bot, created
+      a server with only that bot added, local host the bot, then test all
+      commands to make sure they run as intended.
+    </p>
+
+    <h3>Phase 5: Deployment</h3>
+    <p>
+      The first month of deployment, the bot ran on my 1-month trial of Railway
+      pro and automatically reboot on every push to main branch, causing it to
+      loose all data after each reboot. Since this is still an initial trial
+      run, I compromisewith this while getting my friends to use this bot (aka
+      get them to be my testers). I collected many operation errors in this
+      stage.
+    </p>
+    <p>
+      After 1 month, my Railway trial is finally over. I don't want to pay a
+      monthly subscription fee for a bot that a total of <b>three</b> people
+      use, so I resorted to hosting it on my second laptop. This setup also
+      eliminates the problem of losing data on every reboot. I set up SSH tunnel
+      to have control over it remotely from my main laptop. The whole bot is
+      configured into a systemd service on Linux Ubuntu that allows me to start,
+      stop, restart, and inspect its output through remote command line actions.
+    </p>
+  </body>
+</html>
