@@ -43,3 +43,9 @@
 ul {
 	margin-top: 0rem;
 }
+
+@media (max-width: 768px) {
+	.project-card {
+		width: 70vw;
+	}
+}
