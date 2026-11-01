@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles/global.css" />
+    <title>TZ Meetup | Nicey's Portfolio</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header js-header"></div>
+
+      <div class="content">
+        <h1>TZ Meetup</h1>
+        <p>
+          <a href="https://github.com/Nicey-y/tz-meetup">Public Github repo</a>
+        </p>
+        <p>
+          <a href="https://nicey-y.github.io/tz-meetup/"
+            >Try it out on the live working site.</a
+          >
+        </p>
+        <p>
+          I have multiple friend groups, and some of which consist of people
+          from multiple timezones. One big issue we run into all the time is
+          scheduling a movie night. What does this time correspond to at person
+          A's timezone? If it works for A then how about B? If it doesn't work
+          for B, we have to propose another time and the propose-vote cycle
+          begins again.
+        </p>
+
+        <p>
+          I searched far and wide for a scheduling website or app that can work
+          for our use case, but none of the results was right. Most scheduling
+          services do not take timezones into consideration (the famous
+          <a href="https://www.when2meet.com/">When2Meet</a>, for example). If
+          you search for cross-timezone scheduling, the results are services
+          that tell you what the business hours in a timezone is so that "you
+          can schedule your meeting" (<a
+            href="https://www.timeanddate.com/worldclock/meetingtime.html?iso=20261101&p1=152&p2=262&p3=234"
+            >timeanddate.com example</a
+          >,
+          <a href="https://timezonewizard.com/gp-ert"
+            >timezonewizard.com example</a
+          >), as if I can't just Google that up or remember the timezone offset,
+          duh.
+        </p>
+        <p>
+          As the token tech friend of the group, I quickly realised that this is
+          where my degree can actually be useful. I like to call this project
+          "The Illegitimate Love Child of
+          <a href="https://www.when2meet.com/">When2Meet</a> and
+          <a href="https://www.worldtimebuddy.com/">WorldTimeBuddy</a>"
+          (WorldTimeBuddy is my go-to site for timezone comparison). I adapted
+          When2Meet's simple UI and login flow, and followed WorldTimeBuddy's
+          highly intuitive layout.
+        </p>
+
+        <p>
+          This was no longer my first rodeo so I knew exactly what to do. The
+          biggest design decisions are:
+        </p>
+        <ol>
+          <li>
+            Where should data live (e.g. local SQLite, Supabase,...)?
+            <ul>
+              <li>
+                I've decided to go with Supabase mainly for its easily accesible
+                UI, which is very useful for inspection during debugging.
+              </li>
+            </ul>
+          </li>
+          <li>
+            What data should the system store (e.g. username, timezone info,
+            location,...)?
+            <ul>
+              <li>
+                Final Entity Relationship Diagram in
+                <a href="https://canva.link/5t3d7a2h4r683aw"
+                  >my planning whiteboard</a
+                >.
+              </li>
+            </ul>
+          </li>
+          <li>
+            How should the system treat event creation and login?
+            <ul>
+              <li>
+                System Sequence Diagram + Flow diagram with UI desgin in
+                <a href="https://canva.link/5t3d7a2h4r683aw"
+                  >my planning whiteboard</a
+                >.
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+        <p>
+          Forgive me for the messy whiteboard. I did plan to make it nicer and
+          more readable, but on second thought I felt like leaving my notes as
+          it is helps to show my brainstorming style and thinking process. I
+          grew up learning with pen and papers, and fortunately that is how my
+          thinking process works until today. Throughout university, all my
+          notes were hand-written, prescibed readings are physically printed
+          out, and so were worksheets. My first instinct at coding is to write
+          pseudocode by hand on my mini whiteboard at home. I document project
+          scopes, design decisions, and progress on notebooks. And I said
+          "fortunately" because I truly feel fortunate to be able to experience
+          education prior to the AI takeover, where everything was crude and
+          simple but truly effective.
+          <a href="https://link.springer.com/article/10.1007/s10648-024-09914-w"
+            >This paper</a
+          >
+          consolidates studies on typed vs hand-written lecture notes' effect on
+          student achievement, showing that hand-written notes correlate with
+          higher achievement.
+        </p>
+
+        <p>
+          I also tried typed notes for a whole 2 months before deciding that it
+          was not for me, by the way.
+        </p>
+
+        <p>
+          After that, building, testing, and shipping are straightforward. I've
+          treaded this path before.
+        </p>
+
+        <br /><br /><br /><br /><br /><br /><br />
+        <div class="image-container">
+          <img src="images/tzmeetupcreateevent.png" alt="Create event page" />
+        </div>
+        <div class="image-caption">Home page - Create event</div>
+        <br /><br /><br /><br /><br /><br /><br />
+
+        <div class="image-container">
+          <img src="images/tzmeetupexistevent.png" alt="Logged in view" />
+        </div>
+        <div class="image-caption">View of a logged in user</div>
+
+        <br /><br /><br /><br />
+        <h2>Some note-worthy details about the system are:</h2>
+        <ol>
+          <li>
+            <h3>Database schema:</h3>
+            <ul>
+              <li>
+                Event ID has UUID data type instead of serialised ID so that
+                users cannot correctly guess another event's ID (e.g. If events
+                are numbered increasingly from 1, it's as easy as querying eid=2
+                to see other events).
+              </li>
+              <li>
+                All time info are converted to UTC timestamps before being
+                stored. User's browser convert UTC timestamps to their local
+                time for display.
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h3>Event and user behaviour:</h3>
+            <ul>
+              <li>
+                Once an event is created, it cannot be changed (name, start and
+                end date). If the creator makes a mistake, they will have to
+                create a new event.
+              </li>
+              <li>
+                Similarly, once a user with a username and timezone information
+                is created, it cannot be changed.
+              </li>
+              <li>
+                User is created simply with an username and their timezone
+                information, no password is needed. This does mean that
+                <b
+                  >knowing the username and timezone info is enough to make
+                  changes on a user's behalf</b
+                >. For a service with such a small scale, I think this is fine.
+              </li>
+              <li>
+                Users are scoped to event only, meaning user "david" in event A
+                is not connected to user "david" in event B.
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h3>Other design decisions:</h3>
+            <ul>
+              <li>
+                Event's start and end date are inclusive and local to event
+                creator. e.g. if user select Oct 23 as start and Oct 24 as end
+                date, the event will starts at 0:00 on the 23th, and in the
+                system it will be whatever that timestamp is but in UTC.
+              </li>
+              <li>Each selectable slot corresponds to 30min.</li>
+              <li>
+                User info is stored in localStorage for convenience, but user
+                can choose to log in with another (new) account.
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="footer js-footer"></div>
+    </div>
+
+    <script src="scripts/inject.js"></script>
+    <script src="scripts/card.js"></script>
+  </body>
+</html>
